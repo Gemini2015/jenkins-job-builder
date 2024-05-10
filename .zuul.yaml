@@ -36,6 +36,7 @@
             nodeset: ubuntu-jammy
         - tox-py311:
             nodeset: ubuntu-jammy
+        - tox-py312
         - jjb-tox-linters
         - jjb-tox-cross-python-jenkins
         - jjb-tox-docs-linkcheck
@@ -50,3 +51,4 @@
             nodeset: ubuntu-jammy
         - tox-py311:
             nodeset: ubuntu-jammy
+        - tox-py312
