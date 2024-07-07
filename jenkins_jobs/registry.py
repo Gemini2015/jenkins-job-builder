@@ -18,10 +18,10 @@
 import inspect
 import logging
 import operator
+import packaging.version
 import pkg_resources
 import sys
 import types
-from pkg_resources.extern.packaging.version import InvalidVersion
 
 from six import PY2
 
@@ -76,8 +76,8 @@ class ModuleRegistry(object):
                 version = plugin_info["version"]
 
             try:
-                pkg_resources.parse_version(version)
-            except InvalidVersion:
+                packaging.version.Version(version)
+            except packaging.version.InvalidVersion:
                 plugin_name = short_name or long_name
                 if plugin_name:
                     logger.warning(
