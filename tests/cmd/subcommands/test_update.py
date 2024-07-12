@@ -29,6 +29,10 @@ def test_update_jobs(mocker, fixtures_dir, default_config_file, execute_jenkins_
     """
     mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.job_exists")
     mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.get_all_jobs")
+    mocker.patch(
+        "jenkins_jobs.builder.jenkins.Jenkins.get_job_info",
+        return_value={"disabled": False},
+    )
     reconfig_job = mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.reconfig_job")
 
     path = fixtures_dir / "cmd-002.yaml"
@@ -53,6 +57,10 @@ def test_update_jobs_enabled_only(
     """
     mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.job_exists")
     mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.get_all_jobs")
+    mocker.patch(
+        "jenkins_jobs.builder.jenkins.Jenkins.get_job_info",
+        return_value={"disabled": False},
+    )
     reconfig_job = mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.reconfig_job")
 
     path = fixtures_dir / "cmd-002.yaml"
@@ -77,6 +85,10 @@ def test_update_jobs_decode_job_output(
     mocker.patch("jenkins_jobs.builder.JenkinsManager.is_job", return_value=True)
     mocker.patch("jenkins_jobs.builder.JenkinsManager.get_jobs")
     mocker.patch("jenkins_jobs.builder.JenkinsManager.get_job_md5")
+    mocker.patch(
+        "jenkins_jobs.builder.jenkins.Jenkins.get_job_info",
+        return_value={"disabled": False},
+    )
     update_job_mock = mocker.patch("jenkins_jobs.builder.JenkinsManager.update_job")
 
     # don't care about the value returned here
@@ -104,6 +116,10 @@ def test_update_jobs_and_delete_old(
       True.
     """
     mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.job_exists")
+    mocker.patch(
+        "jenkins_jobs.builder.jenkins.Jenkins.get_job_info",
+        return_value={"disabled": False},
+    )
     jenkins_get_all_jobs = mocker.patch(
         "jenkins_jobs.builder.jenkins.Jenkins.get_all_jobs"
     )
@@ -241,6 +257,10 @@ def test_update_jobs_and_views(
     """
     mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.job_exists")
     mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.get_all_jobs")
+    mocker.patch(
+        "jenkins_jobs.builder.jenkins.Jenkins.get_job_info",
+        return_value={"disabled": False},
+    )
     reconfig_job = mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.reconfig_job")
 
     mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.view_exists")
@@ -277,6 +297,10 @@ def test_update_jobs_only(
     """
     mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.job_exists")
     mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.get_all_jobs")
+    mocker.patch(
+        "jenkins_jobs.builder.jenkins.Jenkins.get_job_info",
+        return_value={"disabled": False},
+    )
     reconfig_job = mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.reconfig_job")
 
     mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.view_exists")
@@ -365,6 +389,10 @@ def test_update_views_and_delete_old_jobs_only(
     No views should be deleted or updated.
     """
     mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.job_exists")
+    mocker.patch(
+        "jenkins_jobs.builder.jenkins.Jenkins.get_job_info",
+        return_value={"disabled": False},
+    )
     jenkins_get_all_jobs = mocker.patch(
         "jenkins_jobs.builder.jenkins.Jenkins.get_all_jobs"
     )
@@ -425,6 +453,85 @@ def test_update_views_and_delete_old_jobs_only(
 
     assert jenkins_reconfig_view.call_count == 0
     assert jenkins_delete_view.call_count == 0
+
+
+def test_update_jobs_fix_disabled(
+    mocker, fixtures_dir, default_config_file, execute_jenkins_jobs
+):
+    """
+    Test update_job fix_disabled
+    """
+
+    # Case 1: Explicitly specifying disabled as True or False will skip the fix_disabled method.
+    mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.job_exists")
+    mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.get_all_jobs")
+    jenkins_get_job_info = mocker.patch(
+        "jenkins_jobs.builder.jenkins.Jenkins.get_job_info",
+        return_value={"disabled": False},
+    )
+    reconfig_job = mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.reconfig_job")
+
+    path = fixtures_dir / "cmd-002.yaml"
+    args = ["--conf", default_config_file, "update", str(path)]
+
+    execute_jenkins_jobs(args)
+
+    jenkins_get_job_info.assert_has_calls(
+        [mock.call(job_name) for job_name in ["bar001"]],
+        any_order=True,
+    )
+    assert jenkins_get_job_info.call_count == 1
+
+    # Case 2: allow disabled to remain the last setting
+    reconfig_job.reset_mock()
+
+    def check_disabled_value(xml_str, expected_value):
+        import xml.etree.ElementTree as XML
+
+        xml = XML.fromstring(
+            xml_str,
+        )
+        disabled = xml.find("disabled")
+        if expected_value is None:
+            assert disabled is None
+        else:
+            assert disabled is not None
+            assert disabled.text == str(expected_value).lower()
+
+    path = fixtures_dir / "cmd-001.yaml"
+    args = ["--conf", default_config_file, "update", str(path)]
+
+    jenkins_get_job_info.return_value = {}
+    execute_jenkins_jobs(args)
+    check_disabled_value(reconfig_job.call_args[0][1], False)
+
+    jenkins_get_job_info.return_value = {"disabled": False}
+    execute_jenkins_jobs(args)
+    check_disabled_value(reconfig_job.call_args[0][1], False)
+
+    jenkins_get_job_info.return_value = {"disabled": True}
+    execute_jenkins_jobs(args)
+    check_disabled_value(reconfig_job.call_args[0][1], True)
+
+    # Case 3: if job does not exist, then the value of disabled depends on the job definition
+    mocker.patch("jenkins_jobs.builder.JenkinsManager.is_job", return_value=False)
+    create_job = mocker.patch("jenkins_jobs.builder.jenkins.Jenkins.create_job")
+
+    path = fixtures_dir / "cmd-002.yaml"
+    args = ["--conf", default_config_file, "update", str(path)]
+
+    create_job.reset_mock()
+    execute_jenkins_jobs(args)
+
+    expected_values = {
+        "bar001": None,
+        "bar002": False,
+        "baz001": False,
+        "bam001": True,
+    }
+    assert create_job.call_count == 4
+    for call in create_job.call_args_list:
+        check_disabled_value(call[0][1], expected_values[call[0][0]])
 
 
 @pytest.mark.skip(reason="TODO: Develop actual update timeout test approach.")
