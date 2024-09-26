@@ -9,7 +9,7 @@
       <workingDir>path/to/build</workingDir>
       <buildType>CustomReleaseType</buildType>
       <installationName>CMake custom install</installationName>
-      <toolArgs>-DCMAKE_FIND_ROOT_PATH=&quot;path/to/something/else&quot;</toolArgs>
+      <toolArgs>-DCMAKE_FIND_ROOT_PATH="path/to/something/else"</toolArgs>
       <toolSteps>
         <hudson.plugins.cmake.BuildToolStep>
           <withCmake>true</withCmake>
@@ -21,8 +21,8 @@ URL=http://www.example.org/
         <hudson.plugins.cmake.BuildToolStep>
           <withCmake>false</withCmake>
           <args>test</args>
-          <vars>RESTRICT=&quot;TRUE&quot;
-TARGET=&quot;NONE&quot;
+          <vars>RESTRICT="TRUE"
+TARGET="NONE"
 </vars>
         </hudson.plugins.cmake.BuildToolStep>
       </toolSteps>

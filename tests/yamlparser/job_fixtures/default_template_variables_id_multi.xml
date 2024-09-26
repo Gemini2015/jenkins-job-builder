@@ -12,9 +12,9 @@
   <scm class="hudson.scm.NullSCM"/>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;Variable: Goodbye World&quot;
-echo &quot;Allow empty Variable: Goodbye World&quot;
-echo &quot;show that we expand for num: 1&quot;
+      <command>echo "Variable: Goodbye World"
+echo "Allow empty Variable: Goodbye World"
+echo "show that we expand for num: 1"
 </command>
     </hudson.tasks.Shell>
   </builders>
@@ -36,9 +36,9 @@ echo &quot;show that we expand for num: 1&quot;
   <scm class="hudson.scm.NullSCM"/>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;Variable: Goodbye World&quot;
-echo &quot;Allow empty Variable: Goodbye World&quot;
-echo &quot;show that we expand for num: 2&quot;
+      <command>echo "Variable: Goodbye World"
+echo "Allow empty Variable: Goodbye World"
+echo "show that we expand for num: 2"
 </command>
     </hudson.tasks.Shell>
   </builders>

@@ -3,7 +3,7 @@
   <buildWrappers>
     <org.jvnet.hudson.tools.versionnumber.VersionNumberBuilder>
       <environmentVariableName>relVersion</environmentVariableName>
-      <versionNumberString>${BUILD_DATE_FORMATTED, &quot;yy.M&quot;}.${BUILDS_THIS_MONTH_Z}</versionNumberString>
+      <versionNumberString>${BUILD_DATE_FORMATTED, "yy.M"}.${BUILDS_THIS_MONTH_Z}</versionNumberString>
       <environmentPrefixVariable>relVersion</environmentPrefixVariable>
       <skipFailedBuilds>false</skipFailedBuilds>
       <useAsBuildDisplayName>false</useAsBuildDisplayName>

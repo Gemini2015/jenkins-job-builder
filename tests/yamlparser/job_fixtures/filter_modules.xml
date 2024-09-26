@@ -11,7 +11,7 @@
   <scm class="hudson.scm.NullSCM"/>
   <builders>
     <hudson.tasks.Shell>
-      <command>my_filter says &quot;hello&quot;</command>
+      <command>my_filter says "hello"</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

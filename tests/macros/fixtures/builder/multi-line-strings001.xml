@@ -19,9 +19,9 @@ DIFFERENT_ENV_VAR=different
 
 
 # Debug output
-echo -e &quot;\n\n\n&quot;
+echo -e "\n\n\n"
 sort | env
-echo -e &quot;\n\n\n&quot;
+echo -e "\n\n\n"
 
 # Test Command
 bundle install

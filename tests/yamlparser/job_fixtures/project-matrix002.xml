@@ -2,7 +2,7 @@
 <matrix-project>
   <executionStrategy class="hudson.matrix.DefaultMatrixExecutionStrategyImpl">
     <runSequentially>false</runSequentially>
-    <touchStoneCombinationFilter>os == &quot;linux&quot;</touchStoneCombinationFilter>
+    <touchStoneCombinationFilter>os == "linux"</touchStoneCombinationFilter>
     <touchStoneResultCondition>
       <name>SUCCESS</name>
       <ordinal>0</ordinal>

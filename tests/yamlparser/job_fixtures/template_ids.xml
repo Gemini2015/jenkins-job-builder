@@ -11,9 +11,9 @@
   <scm class="hudson.scm.NullSCM"/>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;Template name: template-test-ids-{num}-{type}&quot;
-echo &quot;Job name: template-test-ids-1-periodic&quot;
-echo &quot;Hello World&quot;
+      <command>echo "Template name: template-test-ids-{num}-{type}"
+echo "Job name: template-test-ids-1-periodic"
+echo "Hello World"
 </command>
     </hudson.tasks.Shell>
   </builders>
@@ -34,12 +34,12 @@ echo &quot;Hello World&quot;
   <scm class="hudson.scm.NullSCM"/>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;Template name: template-test-ids-{num}-{type}&quot;
-echo &quot;Job name: template-test-ids-2-canary&quot;
+      <command>echo "Template name: template-test-ids-{num}-{type}"
+echo "Job name: template-test-ids-2-canary"
 </command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>echo &quot;Goodbye World&quot;
+      <command>echo "Goodbye World"
 </command>
     </hudson.tasks.Shell>
   </builders>

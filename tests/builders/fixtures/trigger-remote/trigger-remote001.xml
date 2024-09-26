@@ -11,12 +11,12 @@
       <enhancedLogging>true</enhancedLogging>
       <preventRemoteBuildQueue>true</preventRemoteBuildQueue>
       <blockBuildUntilComplete>true</blockBuildUntilComplete>
-      <parameters>FOO=&quot;bar&quot;
-herp=&quot;derp&quot;
+      <parameters>FOO="bar"
+herp="derp"
 </parameters>
       <parameterList>
-        <string>FOO=&quot;bar&quot;</string>
-        <string>herp=&quot;derp&quot;</string>
+        <string>FOO="bar"</string>
+        <string>herp="derp"</string>
       </parameterList>
       <loadParamsFromFile>true</loadParamsFromFile>
       <parameterFile>.props</parameterFile>

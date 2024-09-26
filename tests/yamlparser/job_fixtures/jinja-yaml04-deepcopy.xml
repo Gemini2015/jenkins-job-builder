@@ -11,7 +11,7 @@
   <scm class="hudson.scm.NullSCM"/>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;['repo-1', 'repo-2', 'repo-a1', 'repo-a2']&quot;</command>
+      <command>echo "['repo-1', 'repo-2', 'repo-a1', 'repo-a2']"</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
@@ -30,7 +30,7 @@
   <scm class="hudson.scm.NullSCM"/>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;['repo-1', 'repo-2', 'repo-b1', 'repo-b2']&quot;</command>
+      <command>echo "['repo-1', 'repo-2', 'repo-b1', 'repo-b2']"</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

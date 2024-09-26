@@ -11,7 +11,7 @@
   <scm class="hudson.scm.NullSCM"/>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;param=bar&quot;
+      <command>echo "param=bar"
 </command>
     </hudson.tasks.Shell>
   </builders>
@@ -31,7 +31,7 @@
   <scm class="hudson.scm.NullSCM"/>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;param=foo&quot;
+      <command>echo "param=foo"
 </command>
     </hudson.tasks.Shell>
   </builders>

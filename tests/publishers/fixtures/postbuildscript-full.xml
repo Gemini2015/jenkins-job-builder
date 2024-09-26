@@ -54,7 +54,7 @@
             </results>
             <executeOn>MATRIX</executeOn>
             <role>MASTER</role>
-            <content>println &quot;Hello world!&quot;</content>
+            <content>println "Hello world!"</content>
           </org.jenkinsci.plugins.postbuildscript.model.Script>
           <org.jenkinsci.plugins.postbuildscript.model.Script>
             <results>
@@ -63,8 +63,8 @@
               <string>FAILURE</string>
             </results>
             <role>SLAVE</role>
-            <content>println &quot;Hello world!&quot;
-println &quot;Multi-line script&quot;
+            <content>println "Hello world!"
+println "Multi-line script"
 </content>
           </org.jenkinsci.plugins.postbuildscript.model.Script>
         </groovyScripts>
@@ -78,7 +78,7 @@ println &quot;Multi-line script&quot;
             <role>MASTER</role>
             <buildSteps>
               <hudson.tasks.Shell>
-                <command>echo &quot;Hello world!&quot;</command>
+                <command>echo "Hello world!"</command>
               </hudson.tasks.Shell>
             </buildSteps>
           </org.jenkinsci.plugins.postbuildscript.model.PostBuildStep>
@@ -92,10 +92,10 @@ println &quot;Multi-line script&quot;
             <role>SLAVE</role>
             <buildSteps>
               <hudson.tasks.Shell>
-                <command>echo &quot;Hello world!&quot;</command>
+                <command>echo "Hello world!"</command>
               </hudson.tasks.Shell>
               <hudson.tasks.Shell>
-                <command>echo &quot;Goodbye world!&quot;</command>
+                <command>echo "Goodbye world!"</command>
               </hudson.tasks.Shell>
             </buildSteps>
           </org.jenkinsci.plugins.postbuildscript.model.PostBuildStep>

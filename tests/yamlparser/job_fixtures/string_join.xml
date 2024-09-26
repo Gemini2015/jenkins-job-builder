@@ -26,9 +26,9 @@
   <scm class="hudson.scm.NullSCM"/>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;Template name: string-join-data-{name}&quot;
-echo &quot;Data to be processed:&quot;
-echo &quot;${INPUT_DATA}&quot;
+      <command>echo "Template name: string-join-data-{name}"
+echo "Data to be processed:"
+echo "${INPUT_DATA}"
 </command>
     </hudson.tasks.Shell>
   </builders>
@@ -64,9 +64,9 @@ echo &quot;${INPUT_DATA}&quot;
   <scm class="hudson.scm.NullSCM"/>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;Template name: string-join-data-{name}&quot;
-echo &quot;Data to be processed:&quot;
-echo &quot;${INPUT_DATA}&quot;
+      <command>echo "Template name: string-join-data-{name}"
+echo "Data to be processed:"
+echo "${INPUT_DATA}"
 </command>
     </hudson.tasks.Shell>
   </builders>

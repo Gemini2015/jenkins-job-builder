@@ -18,10 +18,10 @@
     <destinationDir>build</destinationDir>
     <repoUrl>https://internal.net/projects/repo</repoUrl>
     <mirrorDir>~/git/project/</mirrorDir>
-    <localManifest>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    <localManifest>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;manifest&gt;
-  &lt;project path=&quot;external/project&quot; name=&quot;org/project&quot;
-    remote=&quot;gerrit&quot; revision=&quot;master&quot; /&gt;
+  &lt;project path="external/project" name="org/project"
+    remote="gerrit" revision="master" /&gt;
 &lt;/manifest&gt;
 </localManifest>
     <ignoreProjects class="linked-hash-set">

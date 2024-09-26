@@ -58,7 +58,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command>#!/bin/bash
-IMG_NAME=&quot;gluster/glusterd2-nightly&quot;
+IMG_NAME="gluster/glusterd2-nightly"
 IMG_VERSION=$(date +%Y%m%d)
 
 
@@ -75,9 +75,9 @@ make
 
 cp pkg/glusterfs/Dockerfile .
 buildah bud .
-#if [ &quot;$PUSH_TO_HUB&quot; = true ]; then
-    #buildah push --authfile $AUTH_JSON &quot;localhost/$IMG_NAME:$IMG_VERSION&quot; &quot;docker://docker.io/gluster/glusterd2-nightly:$IMG_VERSION&quot;
-    #buildah push --authfile $AUTH_JSON &quot;localhost/$IMG_NAME:$IMG_VERSION&quot; &quot;docker://docker.io/gluster/glusterd2-nightly:latest&quot;
+#if [ "$PUSH_TO_HUB" = true ]; then
+    #buildah push --authfile $AUTH_JSON "localhost/$IMG_NAME:$IMG_VERSION" "docker://docker.io/gluster/glusterd2-nightly:$IMG_VERSION"
+    #buildah push --authfile $AUTH_JSON "localhost/$IMG_NAME:$IMG_VERSION" "docker://docker.io/gluster/glusterd2-nightly:latest"
 #fi
 </command>
     </hudson.tasks.Shell>

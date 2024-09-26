@@ -11,10 +11,10 @@
   <scm class="hudson.scm.NullSCM"/>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;{var}&quot;
-echo &quot;{defined_var|def}&quot;
-echo &quot;{undefined_var|def}&quot;
-echo &quot;{undefined_var|defined_var}&quot;
+      <command>echo "{var}"
+echo "{defined_var|def}"
+echo "{undefined_var|def}"
+echo "{undefined_var|defined_var}"
 </command>
     </hudson.tasks.Shell>
   </builders>
