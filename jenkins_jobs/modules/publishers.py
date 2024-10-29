@@ -916,7 +916,7 @@ def cloverphp(registry, xml_parent, data):
 
         for t_type in ["method", "statement"]:
             val = metrics.get(target, {}).get(t_type)
-            if val is None or type(val) != int:
+            if val is None or type(val) is not int:
                 continue
             if val < 0 or val > 100:
                 raise JenkinsJobsException(

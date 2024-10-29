@@ -17,7 +17,7 @@ def context_lines(message, pos):
         return [message]
     snippet_lines = [line.rstrip() for line in pos.snippet.splitlines()]
     return [
-        f"{pos.path}:{pos.line+1}:{pos.column+1}: {message}",
+        f"{pos.path}:{pos.line + 1}:{pos.column + 1}: {message}",
         *snippet_lines,
     ]
 

@@ -2053,7 +2053,7 @@ def add_notification_context_trait(traits, data):
             nc_suffix = nc.get("suffix", None)
             if nc_suffix is None:
                 nc_trait_suffix.text = "true"
-            elif type(nc_suffix) == bool:
+            elif type(nc_suffix) is bool:
                 nc_trait_suffix.text = str(nc_suffix).lower()
             else:
                 nc_trait_suffix.text = nc_suffix

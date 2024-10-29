@@ -692,7 +692,7 @@ def convert_mapping_to_xml(parent, data, mapping, fail_required=True):
             if val not in valid_options:
                 raise InvalidAttributeError(optname, val, valid_options)
 
-        if type(val) == bool:
+        if type(val) is bool:
             val = str(val).lower()
 
         if val in valid_dict:

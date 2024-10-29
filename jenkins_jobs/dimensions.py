@@ -114,7 +114,7 @@ def is_point_included(exclude_list, params, key_pos=None):
                 return False
     except JenkinsJobsException as x:
         raise x.with_context(
-            f"In template exclude list",
+            "In template exclude list",
             pos=key_pos,
         )
     return True

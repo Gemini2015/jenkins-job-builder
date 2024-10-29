@@ -350,7 +350,7 @@ To delete jobs/views that only have 'foo' in their name::
 Providing Plugins Info
 ^^^^^^^^^^^^^^^^^^^^^^
 With Jenkins LTS 1.651.1+ retrieving plugins info became a secure feature and
-now requires Administrator rights to use [#f2]. This causes JJB to no longer be
+now requires Administrator rights to use [#f2]_. This causes JJB to no longer be
 able to work in situations where a user wants to publish jobs to Jenkins but is
 not able to receive the Administrator permissions. In this case we can provide
 a plugins_info.yaml file containing the plugin versions data needed by JJB to

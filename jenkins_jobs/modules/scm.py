@@ -420,7 +420,7 @@ def git(registry, xml_parent, data):
         xe = XML.SubElement(scm, xmlname, attrs)
         if optname and optname in data:
             val = data[optname]
-        if type(val) == bool:
+        if type(val) is bool:
             xe.text = str(val).lower()
         else:
             xe.text = val
