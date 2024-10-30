@@ -5,7 +5,7 @@
       <markBuildUnstable>false</markBuildUnstable>
       <buildSteps>
         <hudson.tasks.Shell>
-          <command>echo &quot;Shell execution&quot;</command>
+          <command>echo "Shell execution"</command>
         </hudson.tasks.Shell>
         <hudson.tasks.Ant>
           <targets>ant_target</targets>

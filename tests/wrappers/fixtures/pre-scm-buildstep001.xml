@@ -5,12 +5,12 @@
       <buildSteps>
         <hudson.tasks.Shell>
           <command>#!/bin/bash
-echo &quot;Doing something cool&quot;
+echo "Doing something cool"
 </command>
         </hudson.tasks.Shell>
         <hudson.tasks.Shell>
           <command>#!/bin/zsh
-echo &quot;Doing something cool with zsh&quot;
+echo "Doing something cool with zsh"
 </command>
         </hudson.tasks.Shell>
         <hudson.tasks.Ant>

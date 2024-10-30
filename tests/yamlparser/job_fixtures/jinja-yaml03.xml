@@ -15,7 +15,7 @@
       <behavior>0</behavior>
       <runForMatrixParent>false</runForMatrixParent>
       <script>
-        <script>if (manager.logContains(&quot;.*no_jenkins.*&quot;)) {
+        <script>if (manager.logContains(".*no_jenkins.*")) {
     manager.build.result = hudson.model.Result.NOT_BUILT
 }
 </script>

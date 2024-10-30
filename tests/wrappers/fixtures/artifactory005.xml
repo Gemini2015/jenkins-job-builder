@@ -12,10 +12,10 @@
         </deployReleaseRepository>
       </details>
       <uploadSpec>
-        <spec>{ &quot;files&quot;: [ { &quot;pattern&quot;: &quot;*.jar&quot;, &quot;target&quot;: &quot;release&quot; } ] }</spec>
+        <spec>{ "files": [ { "pattern": "*.jar", "target": "release" } ] }</spec>
       </uploadSpec>
       <downloadSpec>
-        <spec>{ &quot;files&quot;: [ { &quot;pattern&quot;: &quot;*.jar&quot;, &quot;target&quot;: &quot;release&quot; } ] }</spec>
+        <spec>{ "files": [ { "pattern": "*.jar", "target": "release" } ] }</spec>
       </downloadSpec>
       <useSpecs>true</useSpecs>
       <deployPattern/>

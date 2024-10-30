@@ -16,13 +16,13 @@
 # sample script to check that variables are expanded
 # when using the !include-raw-expand: application yaml tag
 
-VAR1=&quot;1&quot;
-VAR2=&quot;world&quot;
-VAR3=&quot;${VAR1} ${VAR2}&quot;
+VAR1="1"
+VAR2="world"
+VAR3="${VAR1} ${VAR2}"
 
-[[ -n &quot;${VAR3}&quot; ]] &amp;&amp; {
+[[ -n "${VAR3}" ]] &amp;&amp; {
     # this next section is executed as one
-    echo &quot;${VAR3}&quot;
+    echo "${VAR3}"
     exit 0
 }
 </command>

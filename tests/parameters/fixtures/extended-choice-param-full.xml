@@ -136,7 +136,7 @@
           <descriptionPropertyFile/>
           <descriptionPropertyKey/>
           <bindings/>
-          <groovyScript>import net.sf.json.JSONObject; def jsonEditorOptions = JSONObject.fromObject(/{schema: {&quot;type&quot;: &quot;object&quot;, &quot;title&quot;: &quot;Name&quot;, &quot;properties&quot;: {&quot;name&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;propertyOrder&quot; : 1}}}}/);</groovyScript>
+          <groovyScript>import net.sf.json.JSONObject; def jsonEditorOptions = JSONObject.fromObject(/{schema: {"type": "object", "title": "Name", "properties": {"name": {"type": "string", "propertyOrder" : 1}}}}/);</groovyScript>
           <groovyScriptFile/>
           <groovyClasspath/>
           <defaultGroovyScript/>

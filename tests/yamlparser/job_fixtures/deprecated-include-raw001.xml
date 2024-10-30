@@ -17,7 +17,7 @@
 # to inline scripts that are maintained outside of the jenkins
 # job yaml configuration.
 
-echo &quot;hello world&quot;
+echo "hello world"
 
 exit 0
 </command>
@@ -28,13 +28,13 @@ exit 0
 # sample script to check that brackets are expanded
 # when using the include-raw application yaml tag
 
-VAR1=&quot;hello&quot;
-VAR2=&quot;world&quot;
-VAR3=&quot;${VAR1} ${VAR2}&quot;
+VAR1="hello"
+VAR2="world"
+VAR3="${VAR1} ${VAR2}"
 
-[[ -n &quot;${VAR3}&quot; ]] &amp;&amp; {
+[[ -n "${VAR3}" ]] &amp;&amp; {
     # this next section is executed as one
-    echo &quot;${VAR3}&quot;
+    echo "${VAR3}"
     exit 0
 }
 </command>

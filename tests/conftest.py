@@ -157,7 +157,12 @@ def check_generator(scenario, input, expected_output, jjb_config, registry, proj
 
         generator = Generator(registry)
         generator.gen_xml(xml, input)
-        pretty_xml = XmlJob(xml, "fixturejob").output().decode()
+        pretty_xml = (
+            XmlJob(xml, "fixturejob")
+            .output()
+            .decode()
+            .replace("&quot;", '"')  # Ensure compatibility with Python < 3.13
+        )
         assert expected_output == pretty_xml
 
     return check
@@ -198,6 +203,7 @@ def check_job(scenario, expected_output, jjb_config, registry):
             "\n".join(job.output().decode() for job in job_xml_list)
             .strip()
             .replace("\n\n", "\n")
+            .replace("&quot;", '"')  # Ensure compatibility with Python < 3.13
         )
         if expected_output is None:
             return
