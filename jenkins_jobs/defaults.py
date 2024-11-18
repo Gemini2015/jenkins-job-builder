@@ -79,6 +79,7 @@ job_contents_keys = {
     "prune-dead-branches",
     "days-to-keep",
     "number-to-keep",
+    "abort-builds",
     "periodic-folder-trigger",
     # Pipeline.
     "dsl",
