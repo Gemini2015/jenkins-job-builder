@@ -1,6 +1,24 @@
 Changelog
 ==========
 
+Release 6.4.2
+-------------
+
+Bugs fixed
+~~~~~~~~~~
+
+* Fix "abort-builds" for WorkflowMultiBranchProject
+
+Features added
+~~~~~~~~~~~~~~
+
+* Fix the build with setuptools >= 71.
+* Add support for Python 3.12.
+* Make unit tests compatible with Python 3.13.
+* Allow disabled to remain the last setting.
+* Add inheritance strategy.
+  (`Story 2011206 <https://storyboard.openstack.org/#!/story/2011206>`_).
+
 Release 6.4.1
 -------------
 
