@@ -66,7 +66,7 @@ class Loader(LocLoader):
         # So we can safely cache a parsed YAML for a file containing an alias since the alias can be defined
         # only once and must be defined before use. The alias value will remain same irrespective of the number
         # times a file is parsed
-        return self.load(path.read_text(), source_path=path, source_dir=path.parent)
+        return self.load(path.read_text(encoding="utf-8"), source_path=path, source_dir=path.parent)
 
     def load(self, stream, source_path=None, source_dir=None):
         loader = self._with_stream(stream, source_path, source_dir)
